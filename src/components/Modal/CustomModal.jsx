@@ -2,24 +2,19 @@ import SaveOutlined from "@mui/icons-material/SaveOutlined";
 import { Button, Divider, TextField, Typography, Box } from "@mui/material";
 import { useEffect, useMemo, useState } from "react";
 import Modal from "react-modal";
-import { useUIStore } from "../../hooks";
+import { useScheduleStore, useUIStore } from "../../hooks";
 import "./style.css";
 
 Modal.setAppElement("#root");
 
 export const CustomModal = () => {
-  const [formSubmitted, setFormSubmitted] = useState(false);
   const { isAddSubjectModalOpen, startCloseModal } = useUIStore();
+  const { startSaveSelectedDays } = useScheduleStore();
 
   const [formValues, setFormValues] = useState({
-    title: "",
+    name: "",
+    color: "#2b9cce",
   });
-
-  const titleValidClass = useMemo(() => {
-    if (!formSubmitted) return "";
-
-    return formValues.title.length > 0 ? "is-valid" : "is-invalid";
-  }, [formValues.title, formSubmitted]);
 
   const onInputChange = ({ target }) => {
     setFormValues({
@@ -30,6 +25,11 @@ export const CustomModal = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (formValues.name.trim().length !== 0) {
+      startSaveSelectedDays(formValues);
+      setFormValues({ name: "", color: "#2b9cce" });
+      startCloseModal();
+    }
   };
 
   return (
@@ -49,16 +49,26 @@ export const CustomModal = () => {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            gap: 1,
+            gap: 2,
           }}
         >
           <TextField
             fullWidth
             id="standard-basic"
             label="Nombre de actividad"
-            variant="standard"
+            variant="outlined"
+            name="name"
+            onChange={onInputChange}
+            value={formValues.name}
           />
-          <input style={{ width: "100%" }} type="color" />
+          <TextField
+            name="color"
+            variant="outlined"
+            style={{ width: "100%" }}
+            type="color"
+            value={formValues.color}
+            onChange={onInputChange}
+          />
           <Button type="submit">
             <SaveOutlined sx={{ fontSize: 30 }} />
           </Button>

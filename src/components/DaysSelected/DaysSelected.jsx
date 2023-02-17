@@ -27,6 +27,7 @@ export const DaysSelected = () => {
     <>
       {Object.entries(selectedDays).length !== 0 && (
         <Snackbar
+          sx={{ width: "70%" }}
           open={state.open}
           TransitionComponent={state.Transition}
           message={`Espacios seleccionados: ${
