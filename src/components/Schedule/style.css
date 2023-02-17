@@ -1,0 +1,37 @@
+.schedule_wrapper {
+  overflow: auto;
+  margin: 0 auto;
+  background: #fff;
+  max-width: 1200px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.schedule_header {
+  color: #51565d;
+  height: 45px;
+  color: white;
+  width: 100%;
+  padding: 1px;
+  line-height: 45px;
+  text-align: center;
+}
+
+.schedule_days_item {
+  background-color: #2b9cce;
+}
+
+.schedule_days_body {
+  /*  padding: 70px 70px; */
+  color: #51565d;
+}
+
+.schedule_days_subject {
+  padding: 14px 20px;
+  border-bottom: 1px solid #a6a8b31f;
+  border-top: 1px solid #a6a8b31f;
+}
+
+td,
+th {
+  width: 300px;
+}
