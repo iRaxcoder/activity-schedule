@@ -1,6 +1,13 @@
-import React from "react";
 import "./style.css";
-import { Box, Typography } from "@mui/material";
+import {
+  Box,
+  Paper,
+  Table,
+  TableContainer,
+  TableHead,
+  Typography,
+} from "@mui/material";
+import { ScheduleItem } from "../ScheduleItem/ScheduleItem";
 
 const days = [
   { id: 0, name: "Lunes" },
@@ -49,35 +56,30 @@ const timePeriod = (() => {
 export const Schedule = () => {
   return (
     <>
-      <Box className="schedule_wrapper">
+      <TableContainer elevation={3} component={Paper}>
         <table className="schedule_header">
-          <thead>
+          <TableHead>
             <tr>
               <th className="schedule_days_item">Horas</th>
               {days.map((day, index) => (
-                <th key={index} class="schedule_days_item">
+                <th key={index} className="schedule_days_item">
                   {day.name}
                 </th>
               ))}
             </tr>
-          </thead>
+          </TableHead>
           <tbody>
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(
-              (rows) => (
-                <tr>
-                  <th className="schedule_days_item">{scheduleHours[rows]}</th>
-                  {timePeriod[rows].map((period) => (
-                    <td
-                      style={{ backgroundColor: "#EBEBEB" }}
-                      className="schedule_days_item"
-                    ></td>
-                  ))}
-                </tr>
-              )
-            )}
+            {scheduleHours.map((hour, index) => (
+              <tr key={index}>
+                <th className="schedule_days_item">{hour}</th>
+                {timePeriod[index].map((period) => (
+                  <ScheduleItem key={period.id} {...period} />
+                ))}
+              </tr>
+            ))}
           </tbody>
         </table>
-      </Box>
+      </TableContainer>
     </>
   );
 };

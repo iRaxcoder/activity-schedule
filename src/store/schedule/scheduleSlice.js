@@ -3,19 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 export const scheduleSlice = createSlice({
   name: "schedule",
   initialState: {
-    "Humanidades I": {
-      days: { 0: [0, 5, 7], 1: [3, 4] },
-    },
+    selectedDays: {},
   },
   reducers: {
-    addSubject: (state, { payload }) => {
-      const { subject } = payload;
-      delete payload.subject;
-      state[subject].days = { payload };
-    },
-    deleteSubject: (state, { payload }) => {
-      delete state[payload];
+    onToggleSelectedDay: (state, { payload }) => {
+      const { id } = payload;
+      if (!state.selectedDays[id]) {
+        state.selectedDays[id] = payload;
+      } else {
+        delete state.selectedDays[id];
+      }
     },
   },
 });
-export const { addSubject, deleteSubject } = scheduleSlice.actions;
+export const { onToggleSelectedDay } = scheduleSlice.actions;
