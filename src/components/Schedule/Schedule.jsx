@@ -54,12 +54,12 @@ const timePeriod = (() => {
   return periods;
 })();
 
-export const Schedule = () => {
+export const Schedule = ({ scheduleRef }) => {
   return (
     <>
       <TableContainer elevation={3} component={Paper}>
         <CustomModal />
-        <table className="schedule_header">
+        <table ref={scheduleRef} className="schedule_header">
           <TableHead>
             <tr>
               <th className="schedule_days_item">Horas</th>

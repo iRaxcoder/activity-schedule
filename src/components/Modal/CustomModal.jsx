@@ -27,7 +27,7 @@ export const CustomModal = () => {
     e.preventDefault();
     if (formValues.name.trim().length !== 0) {
       startSaveSelectedDays(formValues);
-      setFormValues({ name: "", color: "#2b9cce" });
+      setFormValues({ ...formValues, name: "" });
       startCloseModal();
     }
   };
@@ -63,6 +63,7 @@ export const CustomModal = () => {
           />
           <TextField
             name="color"
+            label="Color"
             variant="outlined"
             style={{ width: "100%" }}
             type="color"

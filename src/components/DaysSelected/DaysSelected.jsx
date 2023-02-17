@@ -1,6 +1,5 @@
-import { Box, Fade, Snackbar } from "@mui/material";
+import { Fade, Snackbar } from "@mui/material";
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import { useScheduleStore } from "../../hooks/useScheduleStore";
 
 export const DaysSelected = () => {
@@ -10,19 +9,6 @@ export const DaysSelected = () => {
     Transition: Fade,
   });
 
-  const handleClick = (Transition) => () => {
-    setState({
-      open: true,
-      Transition,
-    });
-  };
-
-  const handleClose = () => {
-    setState({
-      ...state,
-      open: false,
-    });
-  };
   return (
     <>
       {Object.entries(selectedDays).length !== 0 && (
