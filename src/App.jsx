@@ -1,7 +1,5 @@
 import { Box } from "@mui/material";
-import { Schedule } from "./components";
-import { AddSubject } from "./components/AddSubject/AddSubject";
-import { DaysSelected } from "./components/DaysSelected/DaysSelected";
+import { Schedule, AddSubject, DaysSelected, CustomModal } from "./components";
 
 function App() {
   return (

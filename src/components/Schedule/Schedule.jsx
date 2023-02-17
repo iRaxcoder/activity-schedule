@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { ScheduleItem } from "../ScheduleItem/ScheduleItem";
+import { CustomModal } from "../Modal/CustomModal";
 
 const days = [
   { id: 0, name: "Lunes" },
@@ -57,6 +58,7 @@ export const Schedule = () => {
   return (
     <>
       <TableContainer elevation={3} component={Paper}>
+        <CustomModal />
         <table className="schedule_header">
           <TableHead>
             <tr>

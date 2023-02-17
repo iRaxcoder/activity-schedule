@@ -1,13 +1,16 @@
 import AddOutlined from "@mui/icons-material/AddOutlined";
 import { IconButton } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useScheduleStore } from "../../hooks/useScheduleStore";
+import { useUIStore } from "../../hooks/useUIStore";
 
 export const AddSubject = () => {
-  const { selectedDays } = useSelector((state) => state.schedule);
+  const { selectedDays } = useScheduleStore();
+  const { startOpenModal } = useUIStore();
   return (
     <>
       {Object.keys(selectedDays).length !== 0 && (
         <IconButton
+          onClick={startOpenModal}
           size="large"
           sx={{
             color: "#fff",
