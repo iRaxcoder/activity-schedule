@@ -1,7 +1,6 @@
 import AddOutlined from "@mui/icons-material/AddOutlined";
 import { IconButton } from "@mui/material";
-import { useScheduleStore } from "../../hooks/useScheduleStore";
-import { useUIStore } from "../../hooks/useUIStore";
+import { useUIStore, useScheduleStore } from "../../hooks";
 
 export const AddSubject = () => {
   const { selectedDays } = useScheduleStore();
@@ -17,7 +16,7 @@ export const AddSubject = () => {
             backgroundColor: "primary.main",
             ":hover": { backgroundColor: "primary.main", opacity: 0.8 },
             position: "fixed",
-            right: 0,
+            right: 10,
             bottom: 20,
           }}
         >

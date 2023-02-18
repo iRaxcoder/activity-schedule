@@ -20,7 +20,6 @@ export const scheduleSlice = createSlice({
     },
     onSaveSelectedDays: (state, { payload }) => {
       for (let key in state.selectedDays) {
-        console.log(state.selectedDays[key]);
         //set new properties to days
         state.selectedDays[key].name = payload.name;
         state.selectedDays[key].color = payload.color;

@@ -1,6 +1,6 @@
 import SaveOutlined from "@mui/icons-material/SaveOutlined";
-import { Button, Divider, TextField, Typography, Box } from "@mui/material";
-import { useEffect, useMemo, useState } from "react";
+import { Button, TextField, Box } from "@mui/material";
+import { useState } from "react";
 import Modal from "react-modal";
 import { useScheduleStore, useUIStore } from "../../hooks";
 import "./style.css";

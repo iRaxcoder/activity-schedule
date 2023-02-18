@@ -4,7 +4,6 @@ export const uiSlice = createSlice({
   name: "ui",
   initialState: {
     isAddSubjectModalOpen: false,
-    isAddSubjectButtonVisible: false,
   },
   reducers: {
     onOpenAddSubjectModal: (state) => {

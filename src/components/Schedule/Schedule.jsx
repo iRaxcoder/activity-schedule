@@ -1,14 +1,5 @@
 import "./style.css";
-import {
-  Box,
-  Paper,
-  Table,
-  TableContainer,
-  TableHead,
-  Typography,
-} from "@mui/material";
-import { ScheduleItem } from "../ScheduleItem/ScheduleItem";
-import { CustomModal } from "../Modal/CustomModal";
+import { ScheduleItem, CustomModal } from "../";
 
 const days = [
   { id: 0, name: "Lunes" },
@@ -57,31 +48,29 @@ const timePeriod = (() => {
 export const Schedule = ({ scheduleRef }) => {
   return (
     <>
-      <TableContainer elevation={3} component={Paper}>
-        <CustomModal />
-        <table ref={scheduleRef} className="schedule_header">
-          <TableHead>
-            <tr>
-              <th className="schedule_days_item">Horas</th>
-              {days.map((day, index) => (
-                <th key={index} className="schedule_days_item">
-                  {day.name}
-                </th>
+      <CustomModal />
+      <table ref={scheduleRef} className="schedule_wrapper">
+        <thead>
+          <tr>
+            <th className="schedule_days_header">Horas</th>
+            {days.map((day, index) => (
+              <th key={index} className="schedule_days_header">
+                {day.name}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {scheduleHours.map((hour, index) => (
+            <tr key={index}>
+              <th className="schedule_days_header">{hour}</th>
+              {timePeriod[index].map((period) => (
+                <ScheduleItem key={period.id} {...period} />
               ))}
             </tr>
-          </TableHead>
-          <tbody>
-            {scheduleHours.map((hour, index) => (
-              <tr key={index}>
-                <th className="schedule_days_item">{hour}</th>
-                {timePeriod[index].map((period) => (
-                  <ScheduleItem key={period.id} {...period} />
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </TableContainer>
+          ))}
+        </tbody>
+      </table>
     </>
   );
 };

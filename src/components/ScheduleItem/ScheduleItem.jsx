@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { useDispatch } from "react-redux";
 import { useScheduleStore } from "../../hooks/useScheduleStore";
 import "./style.css";
 export const ScheduleItem = (period) => {
@@ -18,7 +17,6 @@ export const ScheduleItem = (period) => {
   };
 
   const onDelete = () => {
-    buttonRef.current = null;
     startRemoveSavedDay(period.id);
   };
 
