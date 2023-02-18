@@ -17,6 +17,7 @@ export const AddSubject = () => {
             ":hover": { backgroundColor: "primary.main", opacity: 0.8 },
             position: "fixed",
             right: 10,
+            zIndex: 9999,
             bottom: 20,
           }}
         >

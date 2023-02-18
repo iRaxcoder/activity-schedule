@@ -9,8 +9,11 @@ function App() {
     <>
       <Box>
         <Box
-          component="main"
-          sx={{ flexGrow: 1, p: 2, backgroundColor: "#EBEBEB" }}
+          sx={{
+            flexGrow: 1,
+            p: 2,
+            backgroundColor: "#EBEBEB",
+          }}
         >
           <AddSubject />
           <Schedule scheduleRef={scheduleRef} />
